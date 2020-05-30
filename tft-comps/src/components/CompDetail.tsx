@@ -10,15 +10,15 @@ interface Props {
 
 interface DetailComp {
   title: string;
-  earlyGame: object;
-  midGame: object;
-  lateGame: object;
+  earlyGame: string[];
+  midGame: string[];
+  lateGame: string[];
 }
 const defaultState: DetailComp = {
   title: "no title",
-  earlyGame: {},
-  midGame: {},
-  lateGame: {},
+  earlyGame: [],
+  midGame: [],
+  lateGame: [],
 };
 const CompDetail = (props: Props) => {
   const [data, setData] = useState(defaultState);
@@ -31,50 +31,43 @@ const CompDetail = (props: Props) => {
   return (
     <>
       <h2>{data.title}</h2>
-
       <LateGameFormationList formation={data.lateGame} />
-
-      <h3>Early Game</h3>
-      {data.earlyGame && (
-        <ul>
-          {Object.keys(data.earlyGame).map((key) => {
-            // @ts-ignore tslint:disable-next-line
-            const c = data.earlyGame[key];
-            return <FormationIconSmall champion={c} />;
-          })}
-        </ul>
-      )}
-
-      <h3>Mid Game</h3>
-      {data.midGame && (
-        <ul>
-          {Object.keys(data.midGame).map((key) => {
-            // @ts-ignore tslint:disable-next-line
-            const c = data.midGame[key];
-            return <FormationIconSmall champion={c} />;
-          })}
-        </ul>
-      )}
+      <ShortFormation title={"Early Game"} championIds={data.earlyGame} />
+      <ShortFormation title={"Mid Game"} championIds={data.midGame} />
     </>
   );
 };
 
-interface FormationIconSmallProps {
-  champion: Champion;
+interface ShortFormationProps {
+  title: string;
+  championIds: string[];
 }
-const FormationIconSmall = ({ champion }: FormationIconSmallProps) => (
-  <li>{champion.name}</li>
+const ShortFormation = ({ title, championIds }: ShortFormationProps) => (
+  <>
+    <h3>{title}</h3>
+    <ul>
+      {championIds.map((championId) => (
+        <FormationIconSmall championId={championId} />
+      ))}
+    </ul>
+  </>
+);
+
+interface FormationIconSmallProps {
+  championId: string;
+}
+const FormationIconSmall = ({ championId }: FormationIconSmallProps) => (
+  <li>{championId}</li>
 );
 
 interface LateGameFormationListProps {
-  formation: object;
+  formation: string[];
 }
 const LateGameFormationList = ({ formation }: LateGameFormationListProps) => {
   return (
     <ul>
-      {Object.keys(formation).map((key) => (
-        // @ts-ignore tslint:disable-next-line
-        <FormationIconSmall champion={formation[key]} />
+      {formation.map((championId) => (
+        <FormationIconSmall championId={championId} />
       ))}
     </ul>
   );

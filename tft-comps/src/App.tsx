@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import "./App.css";
 import CompsList from "./components/CompsList";
 import CompDetail from "./components/CompDetail";
+import ChampionsList  from "./components/ChampionsList";
 
 function App() {
   return (
@@ -30,17 +31,5 @@ function App() {
     </Router>
   );
 }
-
-const ChampionsList = () => (
-  <>
-    <h2>Champions</h2>
-    <ul>
-      <li>Champion 1</li>
-      <li>Champion 2</li>
-      <li>Champion 3</li>
-      <li>Champion 4</li>
-    </ul>
-  </>
-);
 
 export default App;

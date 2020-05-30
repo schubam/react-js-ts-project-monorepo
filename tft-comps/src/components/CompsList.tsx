@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CompListItem from "./CompListItem";
-import { findAll } from "./compsData";
+import { findAll } from "../data/comps";
 
 interface Props {
   comps: {
@@ -20,7 +20,7 @@ const CompsList = (props: Props) => {
   }, []);
 
   return (
-    <>
+    <>    
       <h2>Comps</h2>
       <ul>
         {data.map((comp) => (

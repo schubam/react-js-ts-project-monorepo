@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { findById } from "./compsData";
+import { findById } from "../data/comps";
 import { Champion } from "./types";
 
 interface Props {

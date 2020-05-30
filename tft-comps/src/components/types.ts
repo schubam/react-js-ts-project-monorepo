@@ -6,64 +6,40 @@ export enum Cost {
   Five,
 }
 
+export enum Trait {
+  Void = "Void",
+  Vanguard = "Vanguard",
+  Valkyrie = "Valkyrie",
+  Starship = "Starship",
+  StarGuardian = "Star Guardian",
+  SpacePirate = "Space Pirate",
+  Sniper = "Sniper",
+  Rebel = "Rebel",
+  Protector = "Protector",
+  Mystic = "Mystic",
+  Mercenary = "Mercenary",
+  MechPilot = "MechPilot",
+  ManaReaver = "Mana Reaver",
+  Infiltrator = "Infiltrator",
+  Demolitionist = "Demolitionist",
+  DarkStar = "DarkStar",
+  Cybernetic = "Cybernetic",
+  Chrono = "Chrono",
+  Celestial = "Celestial",
+  Brawler = "Brawler",
+  Blaster = "Blaster",
+  Blademaster = "Blademaster",
+}
+
 export interface Champion {
+  championId: string;
   name: string;
   cost: Cost;
   traits: Trait[];
 }
 
-export enum Trait {
-  Void,
-  Vanguard,
-  Valkyries,
-  Starship,
-  StarGuardian,
-  SpacePirate,
-  Sniper,
-  Rebel,
-  Protector,
-  Mystic,
-  Mercenary,
-  MechPilot,
-  ManaReaver,
-  Infiltrator,
-  Demolitionist,
-  DarkStar,
-  Cybernetic,
-  Chrono,
-  Celestial,
-  Brawler,
-  Blaster,
-  Blademaster,
-}
-
-export interface EarlyFormation {
-  slot1: Champion;
-  slot2: Champion;
-  slot3: Champion;
-}
-
-export interface MidFormation {
-  slot1: Champion;
-  slot2: Champion;
-  slot3: Champion;
-  slot4: Champion;
-  slot5: Champion;
-}
-
-export interface LateFormation {
-  slot1: Champion;
-  slot2: Champion;
-  slot3: Champion;
-  slot4: Champion;
-  slot5: Champion;
-  slot6: Champion;
-  slot7: Champion;
-  slot8: Champion;
-}
-
 export interface Loadout {
-  champion: Champion;
+  championId: string;
   items: Item[];
 }
 
@@ -74,10 +50,9 @@ export interface Item {
 export interface Comp {
   id: string;
   title: string;
-  champions?: Champion[];
+  earlyGame: string[];
+  midGame: string[];
+  lateGame: string[];
   loadouts?: Loadout[];
-  earlyGame: EarlyFormation;
-  midGame: MidFormation;
-  lateGame: LateFormation;
   effects?: [];
 }

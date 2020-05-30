@@ -1,9 +1,11 @@
 import React from "react";
-import { Comp } from "./types";
 import { Link } from "react-router-dom";
 
 interface Props {
-  comp: Comp;
+  comp: {
+    id: string;
+    title: string;
+  };
 }
 
 const CompsListItem = ({ comp: { id, title } }: Props) => {

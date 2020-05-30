@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import CompListItem from "./CompListItem";
-import { Comp } from "./types";
-import { findAll } from "./comps-data";
+import { findAll } from "./compsData";
 
 interface Props {
-  comps: Comp[];
+  comps: {
+    id: string;
+    title: string;
+  };
 }
 
 const defaultState: any[] = [];

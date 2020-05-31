@@ -16,6 +16,5 @@ export const FormationIcon = ({ champion }: FormationIconProps) => (
 export const FormationIconSmall = ({ champion }: FormationIconProps) => (
   <div className={"champion-small"}>
     <img src={imageFor(champion.championId)} alt={`${champion.championId}`} />
-    {/* <div className={"champion-info"}>{champion.name}</div> */}
   </div>
 );

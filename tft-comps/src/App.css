@@ -1,1 +1,11 @@
+ul.horizontal {
+  list-style: none;
+}
 
+ul.horizontal li {
+  display: inline;
+}
+
+ul.horizontal li > a {
+  padding: 1em;
+}

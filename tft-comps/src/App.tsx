@@ -12,7 +12,7 @@ function App() {
       <main>
         <h1>App</h1>
         <nav>
-          <ul>
+          <ul className={"horizontal"}>
             <li>
               <Link to="/comps">Comps</Link>
             </li>
@@ -22,10 +22,10 @@ function App() {
           </ul>
         </nav>
         <Switch>
-          <Route path="/" exact component={CompsList} />
           <Route path="/comps/:id" component={CompDetail} />
           <Route path="/comps" component={CompsList} />
           <Route path="/champions" component={ChampionsList} />
+          <Route path="/" exact component={CompsList} />
         </Switch>
       </main>
     </Router>

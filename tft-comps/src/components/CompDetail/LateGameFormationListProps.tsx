@@ -1,16 +1,18 @@
 import React from "react";
 import "./CompDetail.css";
-import { FormationIconSmall } from "./FormationIconSmallProps";
+import { FormationIcon } from "./FormationIcon";
+import { useChampionDetail } from "./useChampionDetail";
 
 interface LateGameFormationListProps {
   formation: string[];
 }
-
 const LateGameFormationList = ({ formation }: LateGameFormationListProps) => {
+  const champions = useChampionDetail(formation);
+
   return (
     <div className={"wrapper"}>
-      {formation.map((championId) => (
-        <FormationIconSmall key={championId} championId={championId} />
+      {champions.map((c) => (
+        <FormationIcon key={c.championId} champion={c} />
       ))}
     </div>
   );

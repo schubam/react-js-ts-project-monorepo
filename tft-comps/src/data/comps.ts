@@ -18,6 +18,7 @@ const comps: Comp[] = [
       "TFT3_Yasuo",
       "TFT3_MasterYi",
       "TFT3_Jinx",
+      "TFT3_AurelionSol",
       "TFT3_Gangplank",
       "TFT3_MissFortune",
     ],

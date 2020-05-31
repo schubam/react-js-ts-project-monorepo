@@ -6,7 +6,7 @@ export function findAll() {
   return champions;
 }
 
-export function findById(id: string) {
+export function findById(id: string): Champion {
   return champions.filter((c) => id === c.championId)[0];
 }
 

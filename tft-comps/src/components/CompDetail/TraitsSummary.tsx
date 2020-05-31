@@ -1,31 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./TraitsSummary.css";
+import { useChampionDetail } from "./useChampionDetail";
 
-interface Props {}
+interface Props {
+  formation: string[]; // champion ids
+}
 
-const TraitsSummary = ({}: Props) => {
+interface IObject {
+  [key: string]: any;
+}
+
+const TraitsSummary = ({ formation }: Props) => {
+  const champions = useChampionDetail(formation);
+  const [traits, setTraits] = useState<IObject>({});
+
+  useEffect(() => {
+    const defaultValue: IObject = {};
+    const traits = champions
+      .map((c) => c.traits)
+      .flat()
+      .reduce((memo, traits: string) => {
+        memo[traits] = (memo[traits] || 0) + 1;
+        return memo;
+      }, defaultValue);
+    setTraits(traits);
+  }, [champions]);
+
   return (
-    <div className="wrapper">
-      <div className="row">
-        <div className="icon">
-          <img src="/images/traits/blaster.png" alt="blaster" />
+    <div className="ts-wrapper">
+      {Object.keys(traits).map((trait, index) => (
+        <div className="ts-row">
+          <div className="ts-icon">
+            <img
+              src={`/images/traits/${trait.replace(/\s/g, "")}.png`}
+              alt={`${trait.replace(/\s/g, "")}`}
+            />
+            <div>{traits[trait]}</div>
+          </div>
+          <div className="ts-description">
+            {trait}
+            <br />
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
+            ratione vel laudantium modi esse qui dicta deleniti, aliquid earum
+            fugit molestiae, quia architecto neque est dolore consequuntur culpa
+            alias consequatur!
+          </div>
         </div>
-        <div className="description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit ratione
-          vel laudantium modi esse qui dicta deleniti, aliquid earum fugit
-          molestiae, quia architecto neque est dolore consequuntur culpa alias
-          consequatur!
-        </div>
-      </div>
-      <div className="row">
-        <div className="icon">
-          <img src="/images/traits/mystic.png" alt="mystic" />
-        </div>
-        <div className="description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit ratione
-          vel laudantium modi esse.
-        </div>
-      </div>
+      ))}
     </div>
   );
 };

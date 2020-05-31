@@ -1,0 +1,21 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: max-content;
+  margin: 10px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  border: 1px solid black;
+}
+
+.icon {
+  text-align: center;
+  width: 94px;
+  height: 94px;
+}
+
+.icon img {
+}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { findById } from "../../data/comps";
 import { ShortFormation } from "./ShortFormationProps";
 import LateGameFormationList from "./LateGameFormationListProps";
+import TraitsSummary from "./TraitsSummary";
 
 interface Props {
   match: {
@@ -33,12 +34,12 @@ const CompDetail = (props: Props) => {
 
   return (
     <>
+      <TraitsSummary />
       <h2>{comp.title}</h2>
       <LateGameFormationList formation={comp.lateGame} />
       <ShortFormation title={"Early Game"} championIds={comp.earlyGame} />
       <ShortFormation title={"Mid Game"} championIds={comp.midGame} />
       <BattlefieldFormation />
-      <TraitsSummary />
     </>
   );
 };
@@ -46,6 +47,5 @@ const CompDetail = (props: Props) => {
 const BattlefieldFormation = () => (
   <div>Placeholder - BattlefieldFormation</div>
 );
-const TraitsSummary = () => <div>Placeholder - TraitsSummary</div>;
 
 export default CompDetail;

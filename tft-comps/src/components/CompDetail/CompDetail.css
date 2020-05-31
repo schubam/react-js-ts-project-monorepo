@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: repeat(8, auto);
   row-gap: 20px;
-  /* border: 1px solid black; */
   margin-bottom: 40px;
 }
 
@@ -11,7 +10,19 @@
   height: 100px;
   width: 100px;
   text-align: center;
-  /* border: 1px solid red; */
+}
+
+.wrapper-small {
+  display: grid;
+  grid-template-columns: repeat(8, auto);
+  margin-bottom: 40px;
+}
+
+.champion-small {
+  position: relative;
+  height: 64px;
+  width: 64px;
+  text-align: center;
 }
 
 .champion img {

@@ -8,11 +8,10 @@ interface Props {
 
 const TraitsSummary = ({ formation }: Props) => {
   const traits = new FormationTraits(formation);
-  const counts = traits.counts();
 
   return (
     <div className={styles.wrapper}>
-      {counts.map((o) => (
+      {traits.counts.map((o) => (
         <div key={o.trait} className={styles.row}>
           <div className={styles.icon}>
             <img
@@ -20,10 +19,9 @@ const TraitsSummary = ({ formation }: Props) => {
               alt={`${o.trait.replace(/\s/g, "")}`}
             />
             <span>{o.count}</span>
+            <div>{o.trait}</div>
           </div>
           <div className={styles.description}>
-            {o.trait}
-            <br />
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
             ratione vel laudantium modi esse qui dicta deleniti, aliquid earum
             fugit molestiae, quia architecto neque est dolore consequuntur culpa

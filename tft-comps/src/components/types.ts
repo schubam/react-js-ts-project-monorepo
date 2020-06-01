@@ -6,7 +6,7 @@ export enum Cost {
   Five,
 }
 
-export enum Trait {
+export enum TraitType {
   Void = "Void",
   Vanguard = "Vanguard",
   Valkyrie = "Valkyrie",
@@ -31,11 +31,30 @@ export enum Trait {
   Blademaster = "Blademaster",
 }
 
+export enum TraitStyle {
+  bronze = "bronze",
+  silver = "silver",
+  gold = "gold",
+  chromatic = "chromatic",
+}
+
+export interface Trait {
+  key: string;
+  name: string;
+  description: string;
+  type: string;
+  sets: {
+    style: TraitStyle;
+    min: number;
+    max: number;
+  }[];
+}
+
 export interface Champion {
   championId: string;
   name: string;
   cost: Cost;
-  traits: Trait[];
+  traits: TraitType[];
 }
 
 export interface Loadout {

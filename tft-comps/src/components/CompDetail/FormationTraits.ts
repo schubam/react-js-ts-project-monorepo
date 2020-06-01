@@ -1,27 +1,16 @@
 import { Champion } from "../types";
 import { findById } from "../../data/champions";
+import { findByName } from "../../data/traits";
 
 class FormationTraits {
   formation: string[];
   champions: Champion[];
+  counts: Array<TraitsTally>;
 
   constructor(formation: string[]) {
     this.formation = formation;
     this.champions = formation.map((id) => findById(id));
-  }
-
-  findByChampionId(id: string): string[] {
-    const c = this.champions.filter((c) => c.championId === id)[0];
-    if (c) {
-      return c.traits;
-    } else {
-      return [];
-    }
-  }
-
-  counts() {
-    const value: TraitsTally[] = [];
-    return this.champions
+    this.counts = this.champions
       .map((c) => c.traits)
       .flat()
       .reduce((memo, trait) => {
@@ -33,7 +22,17 @@ class FormationTraits {
           memo[idx].count += 1;
         }
         return memo;
-      }, value);
+      }, Array<TraitsTally>())
+      .sort((a, b) => b.count - a.count)
+      .filter((t) => {
+        const approved = findByName(t.trait)
+          .sets.map((set) => set.min)
+          .reduce((approved, min) => {
+            approved = approved || t.count >= min;
+            return approved;
+          }, false);
+        return approved;
+      });
   }
 }
 

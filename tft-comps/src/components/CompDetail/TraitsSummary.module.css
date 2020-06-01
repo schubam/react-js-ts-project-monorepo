@@ -8,7 +8,8 @@
 .row {
   display: grid;
   grid-template-columns: 1fr 4fr;
-  border: 1px solid black;
+  margin-bottom: 10px;
+  /* border: 1px solid black; */
 }
 
 .icon {

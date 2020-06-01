@@ -1,5 +1,5 @@
 import React from "react";
-import "./CompDetail.css";
+import styles from "./CompDetail.module.css";
 import { FormationIcon } from "./FormationIcon";
 import { useChampionDetail } from "./useChampionDetail";
 
@@ -10,7 +10,7 @@ const LateGameFormationList = ({ formation }: LateGameFormationListProps) => {
   const champions = useChampionDetail(formation);
 
   return (
-    <div className={"wrapper"}>
+    <div className={styles.wrapper}>
       {champions.map((c) => (
         <FormationIcon key={c.championId} champion={c} />
       ))}

@@ -1,44 +1,28 @@
-import React, { useEffect, useState } from "react";
-import "./TraitsSummary.css";
-import { useChampionDetail } from "./useChampionDetail";
+import React from "react";
+import styles from "./TraitsSummary.module.css";
+import FormationTraits from "./FormationTraits";
 
 interface Props {
   formation: string[]; // champion ids
 }
 
-interface IObject {
-  [key: string]: any;
-}
-
 const TraitsSummary = ({ formation }: Props) => {
-  const champions = useChampionDetail(formation);
-  const [traits, setTraits] = useState<IObject>({});
-
-  useEffect(() => {
-    const defaultValue: IObject = {};
-    const traits = champions
-      .map((c) => c.traits)
-      .flat()
-      .reduce((memo, traits: string) => {
-        memo[traits] = (memo[traits] || 0) + 1;
-        return memo;
-      }, defaultValue);
-    setTraits(traits);
-  }, [champions]);
+  const traits = new FormationTraits(formation);
+  const counts = traits.counts();
 
   return (
-    <div className="ts-wrapper">
-      {Object.keys(traits).map((trait, index) => (
-        <div className="ts-row">
-          <div className="ts-icon">
+    <div className={styles.wrapper}>
+      {counts.map((o) => (
+        <div key={o.trait} className={styles.row}>
+          <div className={styles.icon}>
             <img
-              src={`/images/traits/${trait.replace(/\s/g, "")}.png`}
-              alt={`${trait.replace(/\s/g, "")}`}
+              src={`/images/traits/${o.trait.replace(/\s/g, "")}.png`}
+              alt={`${o.trait.replace(/\s/g, "")}`}
             />
-            <div>{traits[trait]}</div>
+            <div>{o.count}</div>
           </div>
-          <div className="ts-description">
-            {trait}
+          <div className={styles.description}>
+            {o.trait}
             <br />
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
             ratione vel laudantium modi esse qui dicta deleniti, aliquid earum

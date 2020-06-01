@@ -13,13 +13,13 @@
   text-align: center;
 }
 
-.wrapper-small {
+.wrapperSmall {
   display: grid;
   grid-template-columns: repeat(32, 1fr);
   margin-bottom: 40px;
 }
 
-.champion-small {
+.championSmall {
   position: relative;
   height: 64px;
   width: 64px;
@@ -30,7 +30,7 @@
   height: 85%;
 }
 
-.champion-info {
+.championInfo {
   background-color: black;
   color: white;
   position: absolute;

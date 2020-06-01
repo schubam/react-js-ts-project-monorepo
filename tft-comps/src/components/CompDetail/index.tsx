@@ -34,12 +34,12 @@ const CompDetail = (props: Props) => {
 
   return (
     <>
-      <TraitsSummary formation={comp.lateGame} />
       <h2>{comp.title}</h2>
       <LateGameFormationList formation={comp.lateGame} />
       <ShortFormation title={"Early Game"} championIds={comp.earlyGame} />
       <ShortFormation title={"Mid Game"} championIds={comp.midGame} />
       <BattlefieldFormation />
+      <TraitsSummary formation={comp.lateGame} />
     </>
   );
 };

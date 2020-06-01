@@ -41,7 +41,8 @@ export enum TraitStyle {
 export interface Trait {
   key: string;
   name: string;
-  description: string;
+  description?: string;
+  innate?: string;
   type: string;
   sets: {
     style: TraitStyle;

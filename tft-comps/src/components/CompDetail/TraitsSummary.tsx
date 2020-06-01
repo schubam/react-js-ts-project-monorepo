@@ -19,7 +19,7 @@ const TraitsSummary = ({ formation }: Props) => {
               src={`/images/traits/${o.trait.replace(/\s/g, "")}.png`}
               alt={`${o.trait.replace(/\s/g, "")}`}
             />
-            <div>{o.count}</div>
+            <span>{o.count}</span>
           </div>
           <div className={styles.description}>
             {o.trait}

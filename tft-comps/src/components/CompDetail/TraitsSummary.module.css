@@ -12,10 +12,21 @@
 }
 
 .icon {
+  /* border: 1px solid red; */
   text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-right: 10px;
+  grid-auto-rows: min-content;
+  align-items: center;
+}
+
+.icon span {
+  /* border: 1px solid green; */
 }
 
 .icon img {
+  /* border: 1px solid blue; */
   width: 94px;
   height: 94px;
 }

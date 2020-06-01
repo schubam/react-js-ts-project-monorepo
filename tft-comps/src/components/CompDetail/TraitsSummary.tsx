@@ -74,12 +74,7 @@ const TraitsSummary = ({ formation }: Props) => {
             <span>{o.count}</span>
             <div>{o.trait}</div>
           </div>
-          <div className={styles.description}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
-            ratione vel laudantium modi esse qui dicta deleniti, aliquid earum
-            fugit molestiae, quia architecto neque est dolore consequuntur culpa
-            alias consequatur!
-          </div>
+          <div className={styles.description}>{o.description}</div>
         </div>
       ))}
     </div>

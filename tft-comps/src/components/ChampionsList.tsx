@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { findAll } from "../data/champions";
-import { Champion } from "./types";
+import { findAll, imageFor } from "../data/champions";
 
 const defaultState: any[] = [];
 
-const ChampionsList = (props: Champion) => {
+const ChampionsList = (props: any) => {
   const [data, setData] = useState(defaultState);
 
   useEffect(() => {
@@ -15,13 +14,26 @@ const ChampionsList = (props: Champion) => {
   return (
     <>
       <h2>Champions</h2>
-      <ul>
+      <div style={{ display: "grid", gap: "5px", margin: "10px" }}>
         {data.map((champion) => (
-          <li>{champion.name}</li>
+          <ChampionsListItem
+            key={champion.championId}
+            champion={champion}
+            routing={() =>
+              props.history.push(`/champions/${champion.championId}`)
+            }
+          />
         ))}
-      </ul>
+      </div>
     </>
   );
 };
+
+const ChampionsListItem = ({ champion, routing }: any) => (
+  <div style={{ cursor: "pointer" }} onClick={routing}>
+    <img src={imageFor(champion.championId)} alt={`${champion.championId}`} />
+    <div>{champion.name}</div>
+  </div>
+);
 
 export default ChampionsList;

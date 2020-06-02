@@ -5,9 +5,13 @@ import { Champion } from "../types";
 
 interface FormationIconProps {
   champion: Champion;
+  // history: any;
 }
 export const FormationIcon = ({ champion }: FormationIconProps) => (
-  <div className={styles.champion}>
+  <div
+    className={styles.champion}
+    // onClick={() => history.push(`/champions/${champion.championId}`)}
+  >
     <img src={imageFor(champion.championId)} alt={`${champion.championId}`} />
     <div className={styles.championInfo}>{champion.name}</div>
   </div>

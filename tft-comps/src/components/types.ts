@@ -4,6 +4,7 @@ export enum Cost {
   Three,
   Four,
   Five,
+  nothing
 }
 
 export enum TraitType {
@@ -29,6 +30,7 @@ export enum TraitType {
   Brawler = "Brawler",
   Blaster = "Blaster",
   Blademaster = "Blademaster",
+  nothing="nothing"
 }
 
 export enum TraitStyle {

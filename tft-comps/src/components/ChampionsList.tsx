@@ -1,15 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { findAll, imageFor } from "../data/champions";
+import { History } from "history";
+import React, { useEffect, useState } from "react";
+import ChampionsListItem from "./ChampionsListItem";
+import { Champion } from "./types";
 
-const defaultState: any[] = [];
+const defaultState: Champion[] = [];
 
-const ChampionsList = (props: any) => {
+interface Props {
+  finder: () => Champion[];
+  history?: History;
+}
+
+const ChampionsList = ({ finder, history }: Props) => {
   const [data, setData] = useState(defaultState);
 
   useEffect(() => {
-    const result = findAll();
+    const result = finder();
     setData(result);
-  }, [data]);
+  }, [finder]);
 
   return (
     <>
@@ -19,21 +26,12 @@ const ChampionsList = (props: any) => {
           <ChampionsListItem
             key={champion.championId}
             champion={champion}
-            routing={() =>
-              props.history.push(`/champions/${champion.championId}`)
-            }
+            routing={() => history!.push(`/champions/${champion.championId}`)}
           />
         ))}
       </div>
     </>
   );
 };
-
-const ChampionsListItem = ({ champion, routing }: any) => (
-  <div style={{ cursor: "pointer" }} onClick={routing}>
-    <img src={imageFor(champion.championId)} alt={`${champion.championId}`} />
-    <div>{champion.name}</div>
-  </div>
-);
 
 export default ChampionsList;

@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import "./App.css";
 import CompsList from "./components/CompsList";
 import CompDetail from "./components/CompDetail";
-import ChampionDetail  from "./components/ChampionDetail";
-import ChampionsList  from "./components/ChampionsList";
+import ChampionDetail from "./components/ChampionDetail";
+import ChampionsList from "./components/ChampionsList";
+import { findAll } from "./data/champions";
 
 function App() {
   return (
@@ -26,7 +27,10 @@ function App() {
           <Route path="/comps/:id" component={CompDetail} />
           <Route path="/comps" component={CompsList} />
           <Route path="/champions/:id" component={ChampionDetail} />
-          <Route path="/champions" component={ChampionsList} />
+          <Route
+            path="/champions"
+            render={(props) => <ChampionsList finder={findAll} />}
+          />
           <Route path="/" exact component={CompsList} />
         </Switch>
       </main>

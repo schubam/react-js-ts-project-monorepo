@@ -1,0 +1,32 @@
+.champion {
+  cursor: pointer;
+  background-color: grey;
+}
+
+.champion > img {
+  height: 64px;
+  width: 64px;
+  border: 1px solid red;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.label {
+  font-size: 1.5em;
+}
+
+.labelSmall {
+  font-size: 1em;
+}
+
+.left {
+  text-align: left;
+  align-items: initial;
+  align-content: initial;
+  border: 1px solid red;
+
+}

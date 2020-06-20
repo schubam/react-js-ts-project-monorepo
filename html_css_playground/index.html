@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML+CSS Playground</title>
+    <style>
+      p,
+      ul {
+        border: 2px solid rebeccapurple;
+        padding: 0.5em;
+      }
+      .block,
+      li {
+        border: 2px solid blue;
+        padding: 0.5em;
+      }
+
+      ul {
+        display: flex;
+        list-style: none;
+      }
+
+      .block {
+        display: block;
+      }
+
+      .box {
+        border: 5px solid rebeccapurple;
+        background-color: lightgray;
+        padding: 40px;
+        margin: 40px;
+        width: 300px;
+        height: 150px;
+      }
+
+      .alternate {
+        box-sizing: border-box;
+      }
+
+      #the-span {
+        display: inline-block;
+        margin: 20px;
+        padding: 20px;
+        width: 80px;
+        height: 50px;
+        background-color: lightblue;
+        border: 2px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Example 1 -->
+    <p>I am a paragraph. A short one.</p>
+    <ul>
+      <li>Item One</li>
+      <li>Item Two</li>
+      <li>Item Three</li>
+    </ul>
+    <p>
+      I am another paragraph. Some of the <span class="block">words</span> have
+      been wrapped in a <span>span element</span>.
+    </p>
+
+    <!-- Example 2 -->
+    <div class="box">I use the standard box model.</div>
+    <div class="box alternate">I use the alternate box model.</div>
+
+    <!-- Example 3 -->
+    <div>
+      <p>
+        I am a paragraph and this is a <span id="the-span">span</span> inside
+        that paragraph. A span is an inline element and so does not respect
+        width and height.
+      </p>
+    </div>
+  </body>
+</html>

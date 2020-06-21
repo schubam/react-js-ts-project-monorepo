@@ -65,20 +65,25 @@ const TraitsSummary = ({ formation }: Props) => {
   const [traits, setTraits] = useState(Array<TraitsTally>());
   useEffect(() => setTraits(formationTraits(formation)), [formation]);
 
-  return (
-    <div className={styles.wrapper}>
-      {traits.map((o) => (
-        <div key={o.trait} className={styles.row}>
-          <div className={styles.icon}>
-            <img src={o.image} alt={o.trait} />
-            <span>{o.count}</span>
-            <div>{o.trait}</div>
-          </div>
-          <div className={styles.description}>{o.description}</div>
-        </div>
-      ))}
-    </div>
-  );
+  return <div className={styles.wrapper}>{traits.map(TraitListItem)}</div>;
 };
 
 export default TraitsSummary;
+
+function TraitListItem({
+  trait,
+  image,
+  count,
+  description,
+}: TraitsTally): JSX.Element {
+  return (
+    <div key={trait} className={styles.row}>
+      <div className={styles.icon}>
+        <img src={image} alt={trait} />
+        <span className={styles.bronze}>{count}</span>
+        <div>{trait}</div>
+      </div>
+      <div className={styles.description}>{description}</div>
+    </div>
+  );
+}

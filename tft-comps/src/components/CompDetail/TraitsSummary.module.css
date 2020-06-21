@@ -33,5 +33,29 @@
 }
 
 .description {
-  
 }
+
+.bronze {
+  width: 52px;
+  height: 58px;
+  background: url("/images/traits/bg.png") 219px 0;
+}
+
+.silver {
+  width: 52px;
+  height: 58px;
+  background: url("/images/traits/bg.png") 163px 0;
+}
+
+.chromatic {
+  width: 52px;
+  height: 58px;
+  background: url("/images/traits/bg.png") 52px 0;
+}
+
+.gold {
+  width: 52px;
+  height: 58px;
+  background: url("/images/traits/bg.png") 108px 0;
+}
+

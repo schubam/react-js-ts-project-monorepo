@@ -10,11 +10,11 @@ interface Props {
 
 const ChampionsListItem = ({ champion, routing }: Props) => (
   <div className={styles.champion} onClick={routing}>
-    <div className={styles.grid}>
-      <img src={imageFor(champion.championId)} alt={`${champion.championId}`} />
-      <div className="labelSmall left">{champion.traits}</div>
+    <img src={imageFor(champion.championId)} alt={`${champion.championId}`} />
+    <div style={{ padding: "8px" }}>
+      <div className={styles.large}>{champion.name}</div>
+      <div className={styles.small}>{champion.traits.join(" | ")}</div>
     </div>
-    <div className={styles.label}>{champion.name}</div>
   </div>
 );
 

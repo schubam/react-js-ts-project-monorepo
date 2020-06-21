@@ -29,7 +29,9 @@ function App() {
           <Route path="/champions/:id" component={ChampionDetail} />
           <Route
             path="/champions"
-            render={(props) => <ChampionsList finder={findAll} />}
+            render={({ history }) => (
+              <ChampionsList finder={findAll} history={history} />
+            )}
           />
           <Route path="/" exact component={CompsList} />
         </Switch>

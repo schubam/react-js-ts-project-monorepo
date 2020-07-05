@@ -1,4 +1,6 @@
 import React from "react";
+import { withWeekAndDay } from "./weight";
+import DayItem from "./DayItem";
 
 const data = [
   { date: 1593941963658, weight: 123.9 },
@@ -11,8 +13,8 @@ interface Props {}
 const WeekList = (props: Props) => {
   return (
     <ul>
-      {data.map((w) => (
-        <li>{w.weight}</li>
+      {data.map(withWeekAndDay).map((w) => (
+        <DayItem data={w} />
       ))}
     </ul>
   );

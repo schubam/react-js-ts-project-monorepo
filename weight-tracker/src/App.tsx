@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import WeekList from "./components/WeekList";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <header className="App-header">
         <h1>Hello</h1>
       </header>
+      <WeekList />
     </div>
   );
 }

@@ -8,15 +8,23 @@ const data = [
   { date: 1593924717174, weight: 123.8 },
 ];
 
-interface Props {}
+interface Props {
+  week: number;
+  highlight?: boolean;
+}
 
-const WeekList = (props: Props) => {
+const WeekList = ({ week, highlight }: Props) => {
   return (
-    <ul>
-      {data.map(withWeekAndDay).map((w) => (
-        <DayItem data={w} />
-      ))}
-    </ul>
+    <>
+      <h2
+        style={highlight ? { color: "red" } : { color: "black" }}
+      >{`Week ${week}`}</h2>
+      <ul>
+        {data.map(withWeekAndDay).map((w) => (
+          <DayItem data={w} />
+        ))}
+      </ul>
+    </>
   );
 };
 

@@ -4,7 +4,14 @@ I have an excel sheet to track weight.
 I want to create a react app to use instead.
 Learn react and lose weight: right on!
 
-## Todo
+## Current todo
+
+- Render list of weights in context of one week
+- We should show empty entries
+- Fetch entries for week number
+- Idea: Collapsible header with Week info
+
+## Todos
 
 [Trello Board](https://trello.com/b/gSYC65PO/weight-tracker)
 
